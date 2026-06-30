@@ -1,0 +1,4 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { background: #0f1117; -webkit-tap-highlight-color: transparent; }
+input, textarea, button { -webkit-appearance: none; }
