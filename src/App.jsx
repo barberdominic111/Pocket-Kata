@@ -24,7 +24,7 @@ const CSS = `
   .picker-item { padding:8px 12px;font-size:12px;color:#64748b;cursor:pointer;border-radius:5px;transition:background .1s,color .1s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
   .picker-item:hover { background:#1f2435;color:#e2e8f0; }
   .picker-item.selected { color:#f0a500;font-weight:500; }
-  .nav-pill { display:flex;align-items:center;gap:5px;background:#181c27;border:1px solid #2a3045;border-radius:7px;padding:4px 10px;cursor:pointer;font-family:monospace;font-size:11px;color:#94a3b8;transition:border-color .15s;min-width:0;max-width:200px; }
+  .nav-pill { display:flex;align-items:center;gap:4px;background:#181c27;border:1px solid #2a3045;border-radius:6px;padding:3px 7px;cursor:pointer;font-family:monospace;font-size:10px;color:#94a3b8;transition:border-color .15s;min-width:0;max-width:120px; }
   .nav-pill:hover { border-color:#3a4460;color:#e2e8f0; }
   .nav-pill.open { border-color:#f0a500;color:#f0a500; }
   .why-row:hover .why-del { opacity:1 !important; }
@@ -793,11 +793,11 @@ function ScrollPicker({label, icon, items, selectedId, onSelect, onAdd, addLabel
   return(
     <div ref={ref} style={{position:'relative'}}>
       <button className={`nav-pill${open?' open':''}`} onClick={()=>setOpen(v=>!v)}>
-        <span style={{fontSize:9,color:'inherit',letterSpacing:'.06em',textTransform:'uppercase',flexShrink:0}}>{label}</span>
-        <span style={{overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',flex:1,textAlign:'left',color: open?'#f0a500':'#e2e8f0',fontSize:12}}>
+        <span style={{fontSize:8,color:'inherit',letterSpacing:'.05em',textTransform:'uppercase',flexShrink:0}}>{label}</span>
+        <span style={{overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',flex:1,textAlign:'left',color: open?'#f0a500':'#e2e8f0',fontSize:10.5}}>
           {selected?.name || '—'}
         </span>
-        <ChevronDown size={10} style={{flexShrink:0,transform:open?'rotate(180deg)':'none',transition:'transform .15s'}}/>
+        <ChevronDown size={9} style={{flexShrink:0,transform:open?'rotate(180deg)':'none',transition:'transform .15s'}}/>
       </button>
 
       {open&&(
@@ -873,19 +873,19 @@ function TopRibbon({notebooks,activeNb,activePg,onSelectNotebook,onSelectPage,on
 
   return(
     <div style={{
-      height:52,flexShrink:0,
+      height:46,flexShrink:0,
       background:'#0d1018',borderBottom:'1px solid #1f2435',
       display:'flex',alignItems:'center',
-      padding:'0 20px',gap:12,
+      padding:'0 12px',gap:7,
+      overflow:'hidden',
     }}>
       {/* Brand */}
-      <div style={{display:'flex',alignItems:'center',gap:6,flexShrink:0,marginRight:4}}>
-        <span style={{fontFamily:'monospace',color:'#f0a500',fontWeight:700,fontSize:15,letterSpacing:'.06em'}}>KATA</span>
-        <span style={{fontFamily:'monospace',color:'#2a3045',fontSize:10}}>boards</span>
+      <div style={{display:'flex',alignItems:'center',gap:4,flexShrink:0}}>
+        <span style={{fontFamily:'monospace',color:'#f0a500',fontWeight:700,fontSize:12,letterSpacing:'.05em'}}>KATA</span>
       </div>
 
       {/* Divider */}
-      <div style={{width:1,height:22,background:'#1f2435',flexShrink:0}}/>
+      <div style={{width:1,height:18,background:'#1f2435',flexShrink:0}}/>
 
       {/* Notebook picker */}
       <ScrollPicker
@@ -900,7 +900,7 @@ function TopRibbon({notebooks,activeNb,activePg,onSelectNotebook,onSelectPage,on
       />
 
       {/* Arrow separator */}
-      <ChevronRight size={12} color="#2a3045" style={{flexShrink:0}}/>
+      <ChevronRight size={10} color="#2a3045" style={{flexShrink:0}}/>
 
       {/* Page picker */}
       <ScrollPicker
